@@ -1,5 +1,5 @@
 # Use a minimal image as a parent image
-FROM quay.io/deis/go-dev:latest
+FROM golang:1.10
 
 # Install dependencies.
 RUN apt-get update
