@@ -19,12 +19,12 @@ spec:
         securityContext:
             privileged: true
         volumeMounts:
-          - name: root
-            mountPath: /
+          - name: host
+            mountPath: /host
         args: ["sleep", "infinity"]
       hostNetwork: true
       volumes:
-      - name: root
+      - name: host
         hostPath:
           path: /
           type: Directory
