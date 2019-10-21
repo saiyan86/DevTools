@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   labels:
-    run: ubuntu
-  name: ubuntu
+    run: busybox
+  name: busybox
 spec:
   selector:
     matchLabels:
-      run: ubuntu
+      run: busybox
   template:
     metadata:
       labels:
-        run: ubuntu
+        run: busybox
     spec:
       containers:
-      - name: ubuntu
-        image: ubuntu
+      - name: busybox
+        image: busybox
         securityContext:
             privileged: true
         volumeMounts:
