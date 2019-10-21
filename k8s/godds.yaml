@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    run: ubuntu
+  name: ubuntu
+spec:
+  selector:
+    matchLabels:
+      run: ubuntu
+  template:
+    metadata:
+      labels:
+        run: ubuntu
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        securityContext:
+            privileged: true
+        volumeMounts:
+          - name: root
+            mountPath: /
+  volumes:
+  - name: root
+    hostPath:
+      path: /
