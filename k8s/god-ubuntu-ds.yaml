@@ -1,0 +1,30 @@
+  apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    run: ubuntu
+  name: ubuntu
+spec:
+  selector:
+    matchLabels:
+      run: ubuntu
+  template:
+    metadata:
+      labels:
+        run: ubuntu
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        securityContext:
+            privileged: true
+        volumeMounts:
+          - name: host
+            mountPath: /host
+        args: ["sleep", "infinity"]
+      hostNetwork: true
+      volumes:
+      - name: host
+        hostPath:
+          path: /
+          type: Directory
