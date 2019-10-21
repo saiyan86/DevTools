@@ -21,6 +21,7 @@ spec:
         volumeMounts:
           - name: root
             mountPath: /
+        args: ["sleep", "infinity"]
       hostNetwork: true
       volumes:
       - name: root
